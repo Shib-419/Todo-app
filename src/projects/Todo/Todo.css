@@ -1,0 +1,311 @@
+/* Import a playful Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  font-family: 'Comic Neue', cursive;
+  /* padding: 20px; */
+}
+
+/* .todo-container {
+  margin-top: 50px;
+  background: #1e2a38;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+} */
+.todo-container {
+  position: relative;
+  /* needed for the pseudo-element */
+  margin-top: 50px;
+  background: #1e2a38;
+  padding: 30px 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  /* keep the glow inside */
+  z-index: 1;
+  /* stack above the glow */
+}
+
+.todo-container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg,
+      #075b82,
+      #02294b,
+      #08587a,
+      #043661,
+      #123e54);
+  border-radius: 50%;
+  filter: blur(50px);
+  animation: spin 6s linear infinite;
+  z-index: -1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.todo-container header h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4fc3f7;
+}
+
+.todo-container header h2 {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 20px;
+  /* color: #4fc3f7; */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form form {
+  display: flex;
+  width: 100%;
+}
+
+.inp-div {
+  width: 70%;
+}
+
+.form-div {
+  width: 30%;
+}
+
+.todo-input {
+  flex: 1;
+  border-radius: 50px 0 0 50px;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+.todo-btn {
+  border-radius: 0 50px 50px 0;
+  background-color: #4fc3f7;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.todo-btn:hover {
+  background-color: #dde503;
+}
+
+.myUnOrdList {
+  margin-top: 20px;
+}
+
+.myUnOrdList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  color: #333;
+  /* padding: 12px 20px;
+  border-radius: 50px; */
+  /* margin: 10px 0; */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  /* background: #2c3e50; */
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px; 
+}
+
+.todo-actions span {
+  font-size: 1.1rem;
+  flex-grow: 1;
+  word-break: break-word;
+  /* Prevents overflow for long text */
+}
+
+.todo-actions button {
+  border: none;
+  background: #4caf50;
+  color: #fff;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.todo-actions button:hover {
+  transform: scale(1.1);
+}
+
+.todo-actions button.delete {
+  background: #f44336;
+}
+
+.clear-sec {
+  display: flex;
+  justify-content: center;
+}
+
+.clr-btn {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  background-color: #e53935;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.clr-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg,
+      #e9e2e4,
+      #dad0d0,
+      #ff1744,
+      #e00b0b,
+      #c81136);
+  border-radius: 50%;
+  filter: blur(30px);
+  animation: spin 4s linear infinite;
+  z-index: -1;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.clr-btn:hover {
+  transform: scale(1.05);
+  background-color: #f44336;
+  /* lighter red on hover */
+  box-shadow: 0 0 20px rgba(244, 67, 54, 0.6);
+}
+
+.clr-btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px rgba(244, 67, 54, 0.8);
+}
+
+/* Keep the exact same layout on all screen sizes */
+@media (max-width: 600px) {
+  .todo-container header h1 {
+    font-size: 2rem;
+  }
+
+  .todo-input {
+    font-size: 0.9rem;
+    padding: 12px 15px;
+  }
+
+  .todo-btn {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form form {
+    flex-direction: row;
+    align-items: stretch;
+    /* Ensures input & button same height */
+  }
+
+  .inp-div {
+    width: 70%;
+  }
+
+  .form-div {
+    width: 30%;
+  }
+
+  .todo-input {
+    border-radius: 50px 0 0 50px;
+    margin-bottom: 0;
+  }
+
+  .todo-btn {
+    width: 100%;
+    height: 100%;
+    /* Take full height of parent div */
+    padding: 0;
+    /* No extra padding to mess with height */
+    border-radius: 0 50px 50px 0;
+  }
+
+  .todo-container {
+    background: #1e2a38;
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    max-width: 500px;
+  }
+}
+
+.task-text {
+  font-size: 1.1rem;
+  /* color: white; */
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.task-text.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
